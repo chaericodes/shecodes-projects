@@ -1,0 +1,154 @@
+body {
+    font-family: "Rubik", sans-serif;
+    background: #e3f6f5;
+    color: #272343;
+    margin: 0;
+  }
+  
+  .header {
+    padding: 20px;
+    background: #bae8e8;
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0px auto;
+  }
+  
+  .greetings {
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #grid.container {
+    margin-bottom: 20px;
+    max-width: 550px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 10px;
+  }
+  
+  .button {
+    border: 1px #272343 solid;
+    background: #272343;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px gray;
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background: white;
+    color: #272343;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    border: 1px white solid;
+  }
+  
+  .text-main-section {
+    text-align: left;
+  }
+  
+  .main-emoji {
+    font-size: 100px;
+    margin: 5px;
+  }
+  
+  .main-box {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .box {
+    display: block;
+    padding: 0;
+  }
+  
+  .main-country {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  
+  .small-text-main-section {
+    padding-left: 3px;
+    line-height: 20px;
+  }
+  
+  .bottom-main-section-emoji {
+    font-size: 40px;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .rectangle {
+    margin: 0px auto;
+    padding: 1px;
+    max-width: 500px;
+    background: #bae8e8;
+    border-radius: 8px;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    border: 2px solid #272343;
+    padding: 10px;
+  }
+  
+  .footer {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 100px;
+  }
+  
+  .placement {
+    position: relative;
+    right: 1px;
+  }
+  
+  #button-addon2 {
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    box-shadow: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border: 2px solid #272343;
+  }
+  
+  #button-addon2:hover {
+    border: 2px solid #272343;
+    transition: all 500ms ease-out;
+  }
+
+  #btn-success {
+    display: inline block;
+  }
+
+  #search-bar {
+    position: bottom;
+    left: 200px;
+  }
+  
+  hr {
+    margin: 10px auto;
+  }
+  
+  small {
+    font-size: 10px;
+    position: relative;
+    bottom: 3px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
