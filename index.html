@@ -24,113 +24,98 @@
   </head>
 
   <body>
-    <div class="header">
-      <!-- insert logo of web app here -->
-      <p class="greetings">Good morning, sunshine!</p>
-    </div>
-
-    <div class="container text-center" id="grid">
-        <div class="row ">
-          <div class="col-4">
-            <button type="button" class="btn btn-success button next-city">Next City</button>
-          </div>
-          <div class="col-4">
-                <button type="button" class="btn btn-success button" id="crrnt-loc">Current Location</button>
-          </div>
-          <div class="col-4">
-            <button type="button" class="btn btn-success button next-country">Next Country</buttons>
-          </div>
-        </div>
-      </div>
-
-    
-
-    <div class="container">
-      <div class="row justify-content-center main-box">
-        <div class="col-4 box">
-          <p class="main-emoji">☀️</p>
-        </div>
-        <div class="col-4 box">
-          <span class="text-main-section">
-            <ul>
-              <li class="main-country">Manila</li>
-              <li class="small-text-main-section" >Philippines | <span id="forecast"><span id="weather-value">32</span><a href="#" id="weather-unit"> °C<a></span></li>
-              <li class="small-text-main-section" id="current-date">
-                Apr 10, 2023
-              </li>
-              <li class="small-text-main-section" id="current-day">Thursday</li>
-              <li class="small-text-main-section" id="current-time">9:15 AM</li>
-            </ul>
-          </span>
-        </div>
-      </div>
-
-      <div class="row justify-content-center rectangle">
-        <div class="col-4 box">
-          <p class="bottom-main-section-emoji">☁️</p>
-        </div>
-        <div class="col-4 box">
-          <ul class="bottom-main-section">
-            <li>40°</li>
-            <li>Chance of rain: 25%</li>
-          </ul>
-        </div>
-      </div>
-      <br />
-
-      <div class="row justify-content-center rectangle">
-        <div class="col-4 box">
-          <p class="bottom-main-section-emoji">☁️</p>
-        </div>
-        <div class="col-4 box">
-          <ul>
-            <li>25°</li>
-            <li>Chance of rain: 25%</li>
-          </ul>
-        </div>
-      </div>
-      <br />
-
-      <div class="row justify-content-center rectangle">
-        <div class="col-4 box">
-          <p class="bottom-main-section-emoji">☁️</p>
-        </div>
-        <div class="col-4 box">
-          <ul>
-            <li>30°</li>
-            <li>Chance of rain: 25%</li>
-          </ul>
-        </div>
-      </div>
-      <br />
-
-
-      <span>
-        <div class="input-group mb-3 w-50" id="search-bar">
-            <input
-            type="search"
-            class="form-control"
-            placeholder="Search"
-            aria-label="Search"
-            id="search-input"
-            aria-describedby="button-addon2"
-            />
-        <button
-          class="btn btn-outline-secondary button placement"
-          type="submit button"
-          id="button-addon2"
-        >
+    <div class="wrapper">
+      <div class="input-group mb-3 search-bar">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="button-addon2"
+        />
+        <button class="btn btn-primary" type="button" id="button-addon2">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
+      </div>
+
+      <div class="content">
+        <div class="more-details">
+          <ul>
+            <li>Precipitation: 24%</li>
+            <li>Humidity: 92%</li>
+            <li>Wind: 5 km/h</li>
+          </ul>
         </div>
 
-        
-    </span>
-      <hr />
-
-      <div class="footer">
-        Coded by Chayry Bustamante<a href="https://github.com/mintchaeri/shecodes-week6"> (chaericodes)</a></div>
-      <script src="src/index.js"></script>
+        <div class="container text-center">
+          <div class="row row-cols-auto">
+            <div class="col-7 weather-icon-description">
+              <img src="icon/clear-sky-day.png" alt="clear skies" />
+              <ul>
+                <li class="description">Clear Skies</li>
+                <li id="feels-like-desc">Feels like 27 °C</li>
+              </ul>
+            </div>
+            <div class="col weather-info">
+              <ul>
+                <li>
+                  <h1>30</h1>
+                  <span class="weather-unit">°C | °F</span>
+                </li>
+                <li>Manila, Philippines</li>
+                <li>June 11, 2023</li>
+                <li>Sunday</li>
+                <li>9:28 AM</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="container text-center next-five-days">
+          <div class="row">
+            <div class="col next-day">
+              <ul>
+                <li><img src="icon/clear-sky-day.png" /></li>
+                <li class="next-day-temp">27°C</li>
+                <li><small>Monday</small></li>
+              </ul>
+            </div>
+            <div class="col next-day">
+              <ul>
+                <li><img src="icon/clear-sky-day.png" /></li>
+                <li class="next-day-temp">27°C</li>
+                <li><small>Tuesday</small></li>
+              </ul>
+            </div>
+            <div class="col next-day">
+              <ul>
+                <li><img src="icon/clear-sky-day.png" /></li>
+                <li class="next-day-temp">27°C</li>
+                <li><small>Wednesday</small></li>
+              </ul>
+            </div>
+            <div class="col next-day">
+              <ul>
+                <li><img src="icon/clear-sky-day.png" /></li>
+                <li class="next-day-temp">27°C</li>
+                <li><small>Thursday</small></li>
+              </ul>
+            </div>
+            <div class="col next-day">
+              <ul>
+                <li><img src="icon/clear-sky-day.png" /></li>
+                <li class="next-day-temp">27°C</li>
+                <li><small>Friday</small></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end div for .container -->
+      <p id="footer">
+        Open Source Code by Chayry Bustamante
+        <a href="" target="_blank">(chaericodes)</a>
+      </p>
     </div>
   </body>
 </html>
