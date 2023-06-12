@@ -48,6 +48,7 @@ function showTemperature(response) {
     let country = document.querySelector("#main-country");
     let icon = document.querySelector("#main-icon");
     let wind = document.querySelector("#wind");
+    icon.setAttribute(`src`, `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     country.innerHTML = response.data.country;
     wind.innerHTML = Math.round(response.data.wind.speed);
     humidity.innerHTML = Math.round(response.data.temperature.humidity);
@@ -60,5 +61,6 @@ function showTemperature(response) {
 }
 
 let apiKey = `9b041cb0e74745939f1d6ae898107fot`;
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Sydney&key=${apiKey}&units=metric`
+let city = `Manila`
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
 axios.get(apiUrl).then(showTemperature);
