@@ -82,6 +82,19 @@ h1 {
   color: rgba(255, 255, 255, 0.500);
 }
 
+#celsius-conv, #fahrenheit-conv {
+  text-decoration: none;
+}
+
+.weather-unit .active {
+  color: white;
+  cursor: default;
+}
+
+.weather-unit .active:hover {
+  text-decoration: none;
+}
+
 #footer {
   font-family: monospace;
   font-weight: 100px;

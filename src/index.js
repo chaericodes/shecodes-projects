@@ -48,12 +48,15 @@ function showTemperature(response) {
     let country = document.querySelector("#main-country");
     let icon = document.querySelector("#main-icon");
     let wind = document.querySelector("#wind");
+
+    celsiusTemp = response.data.temperature.current;
+    
     icon.setAttribute(`src`, `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     country.innerHTML = response.data.country;
     wind.innerHTML = Math.round(response.data.wind.speed);
     humidity.innerHTML = Math.round(response.data.temperature.humidity);
     currentCity.innerHTML = response.data.city;
-    currentTemp.innerHTML = Math.round(response.data.temperature.current);
+    currentTemp.innerHTML = Math.round(celsiusTemp);
     description.innerHTML = response.data.condition.description;
     feelsLike.innerHTML = `Feels like ${Math.round(response.data.temperature.feels_like)} °C`;
 }
@@ -66,6 +69,8 @@ function search(city) {
 
 function handleSubmit (event) {
   event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
   let cityInput = document.querySelector("#search-input");
   search(cityInput.value);
 }
@@ -73,6 +78,32 @@ function handleSubmit (event) {
 let searchBtn = document.querySelector("#button-addon2");
 searchBtn.addEventListener("click", handleSubmit);
 
-search("Tanza");
-let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
+//let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#main-temperature");
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemp = (celsiusTemp * 9)/5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsiusTemp (event) {
+  event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let temperature = document.querySelector("#main-temperature");
+  temperature.innerHTML = Math.round(celsiusTemp);
+}
+
+let fahrenheit = document.querySelector("#fahrenheit-conv");
+fahrenheit.addEventListener("click", showFahrenheitTemp);
+
+let celsius = document.querySelector("#celsius-conv");
+celsius.addEventListener("click", showCelsiusTemp);
+
+let celsiusTemp = null;
+
+search("Tanza");
