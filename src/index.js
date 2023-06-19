@@ -58,17 +58,21 @@ function showTemperature(response) {
     feelsLike.innerHTML = `Feels like ${Math.round(response.data.temperature.feels_like)} °C`;
 }
 
-function search(event) {
-    event.preventDefault();
-    let cityInput = document.querySelector("#search-input");
-    console.log(cityInput.value);
+function search(city) {
+  let apiKey = `9b041cb0e74745939f1d6ae898107fot`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSubmit (event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#search-input");
+  search(cityInput.value);
 }
 
 let searchBtn = document.querySelector("#button-addon2");
-searchBtn.addEventListener("click", search);
+searchBtn.addEventListener("click", handleSubmit);
 
-let apiKey = `9b041cb0e74745939f1d6ae898107fot`;
-let city = `Manila`
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
-let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
-axios.get(apiUrl).then(showTemperature);
+search("Tanza");
+let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
