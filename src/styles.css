@@ -1,6 +1,7 @@
 body {
     font-family: "Rubik", sans-serif;
     background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);
+    background-repeat: no-repeat;
     color: white;
     overflow:hidden;
 }
@@ -16,7 +17,7 @@ body {
     max-width: 700px;
     height: 500px;
     box-shadow: -4px 3px 32px -4px rgba(0, 0, 0, 0.49);
--webkit-box-shadow: -4px 3px 32px -4px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: -4px 3px 32px -4px rgba(0, 0, 0, 0.49);
 -moz-box-shadow: -4px 3px 32px -4px rgba(0, 0, 0, 0.49);
     margin: 20px auto;
     margin-top: 70px;
@@ -54,7 +55,16 @@ body {
   margin: 5px;
   border-radius: 10px;
   padding: 5px;
-  }
+}
+
+.next-day-temp-max {
+  font-weight: bold;
+}
+
+.next-day-temp-min {
+  opacity: 0.5;
+  font-weight: normal;
+}
 
 h1 {
   display: inline;
