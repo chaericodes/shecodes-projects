@@ -39,6 +39,13 @@ currentDay.innerHTML = `${days}`;
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${hour}:${minutes}`;
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = `9b041cb0e74745939f1d6ae898107fot`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showTemperature(response) {
     let currentTemp = document.querySelector("#main-temperature");
     let feelsLike = document.querySelector("#feels-like-desc");
@@ -59,6 +66,8 @@ function showTemperature(response) {
     currentTemp.innerHTML = Math.round(celsiusTemp);
     description.innerHTML = response.data.condition.description;
     feelsLike.innerHTML = `Feels like ${Math.round(response.data.temperature.feels_like)} °C`;
+
+    getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -95,7 +104,8 @@ function showCelsiusTemp (event) {
   temperature.innerHTML = Math.round(celsiusTemp);
 }
 
-function showForecast () {
+function showForecast (response) {
+  console.log(response.data);
   let nextDayForecast = document.querySelector("#next-five-days");
   let nextDayForecastHTML = `<div class="row">`;
   let days = ["Sat", "Sun", "Mon", "Tues", "Wed"];
@@ -126,5 +136,4 @@ celsius.addEventListener("click", showCelsiusTemp);
 
 let celsiusTemp = null;
 
-showForecast();
 search("Tanza");
