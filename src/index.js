@@ -78,9 +78,6 @@ function handleSubmit (event) {
 let searchBtn = document.querySelector("#button-addon2");
 searchBtn.addEventListener("click", handleSubmit);
 
-
-//let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-
 function showFahrenheitTemp(event) {
   event.preventDefault();
   let temperature = document.querySelector("#main-temperature");
@@ -98,6 +95,29 @@ function showCelsiusTemp (event) {
   temperature.innerHTML = Math.round(celsiusTemp);
 }
 
+function showForecast () {
+  let nextDayForecast = document.querySelector("#next-five-days");
+  let nextDayForecastHTML = `<div class="row">`;
+  let days = ["Sat", "Sun", "Mon", "Tues", "Wed"];
+  days.forEach(function(day) {
+  nextDayForecastHTML = 
+  nextDayForecastHTML + 
+  `          
+  <div class="col next-day">
+    <ul>
+      <li>
+        <img src="icon/clear-sky-day.png" id="forecast-icon-1" />
+      </li>
+      <li id="forecast-day-1"><small>${day}</small></li>
+      <li class="next-day-temp-max">27° <span class="next-day-temp-min"> 30°</span</li>
+    </ul>
+  </div>`;
+  });
+
+  nextDayForecastHTML = nextDayForecastHTML + `</div>`;
+  nextDayForecast.innerHTML = nextDayForecastHTML;
+}
+
 let fahrenheit = document.querySelector("#fahrenheit-conv");
 fahrenheit.addEventListener("click", showFahrenheitTemp);
 
@@ -106,4 +126,5 @@ celsius.addEventListener("click", showCelsiusTemp);
 
 let celsiusTemp = null;
 
+showForecast();
 search("Tanza");
