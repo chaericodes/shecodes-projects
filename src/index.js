@@ -104,25 +104,37 @@ function showCelsiusTemp (event) {
   temperature.innerHTML = Math.round(celsiusTemp);
 }
 
+function formatDay (timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function showForecast (response) {
-  console.log(response.data);
+  console.log(response.data.daily);
+  let castForecast = response.data.daily;
   let nextDayForecast = document.querySelector("#next-five-days");
   let nextDayForecastHTML = `<div class="row">`;
-  let days = ["Sat", "Sun", "Mon", "Tues", "Wed"];
-  days.forEach(function(day) {
+
+  castForecast.forEach(function(forecastDay, index) {
+    if (index < 6) {
   nextDayForecastHTML = 
   nextDayForecastHTML + 
   `          
   <div class="col next-day">
     <ul>
       <li>
-        <img src="icon/clear-sky-day.png" id="forecast-icon-1" />
+        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" id="forecast-icon-1" />
       </li>
-      <li id="forecast-day-1"><small>${day}</small></li>
-      <li class="next-day-temp-max">27° <span class="next-day-temp-min"> 30°</span</li>
+      <li id="forecast-day-1"><small>${formatDay(forecastDay.time)}</small></li>
+      <li class="next-day-temp-max">${Math.round(forecastDay.temperature.maximum)}° <span class="next-day-temp-min"> ${Math.round(forecastDay.temperature.minimum)}°</span</li>
     </ul>
   </div>`;
+    }
   });
+    
 
   nextDayForecastHTML = nextDayForecastHTML + `</div>`;
   nextDayForecast.innerHTML = nextDayForecastHTML;
