@@ -40,7 +40,6 @@ let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${hour}:${minutes}`;
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = `9b041cb0e74745939f1d6ae898107fot`;
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
@@ -78,8 +77,6 @@ function search(city) {
 
 function handleSubmit (event) {
   event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
   let cityInput = document.querySelector("#search-input");
   search(cityInput.value);
 }
@@ -87,19 +84,8 @@ function handleSubmit (event) {
 let searchBtn = document.querySelector("#button-addon2");
 searchBtn.addEventListener("click", handleSubmit);
 
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#main-temperature");
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemp = (celsiusTemp * 9)/5 + 32;
-  temperature.innerHTML = Math.round(fahrenheitTemp);
-}
-
 function showCelsiusTemp (event) {
   event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
   let temperature = document.querySelector("#main-temperature");
   temperature.innerHTML = Math.round(celsiusTemp);
 }
@@ -113,7 +99,6 @@ function formatDay (timestamp) {
 }
 
 function showForecast (response) {
-  console.log(response.data.daily);
   let castForecast = response.data.daily;
   let nextDayForecast = document.querySelector("#next-five-days");
   let nextDayForecastHTML = `<div class="row">`;
@@ -139,12 +124,6 @@ function showForecast (response) {
   nextDayForecastHTML = nextDayForecastHTML + `</div>`;
   nextDayForecast.innerHTML = nextDayForecastHTML;
 }
-
-let fahrenheit = document.querySelector("#fahrenheit-conv");
-fahrenheit.addEventListener("click", showFahrenheitTemp);
-
-let celsius = document.querySelector("#celsius-conv");
-celsius.addEventListener("click", showCelsiusTemp);
 
 let celsiusTemp = null;
 
